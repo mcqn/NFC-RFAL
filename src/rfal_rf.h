@@ -611,7 +611,7 @@ class RfalRfClass {
      * \return ERR_NONE         : No error
      *****************************************************************************
      */
-    virtual ReturnCode rfalInitialize(void);
+    virtual ReturnCode rfalInitialize(void) =0;
 
 
     /*!
@@ -626,7 +626,7 @@ class RfalRfClass {
      *
      *****************************************************************************
      */
-    virtual ReturnCode rfalCalibrate(void);
+    virtual ReturnCode rfalCalibrate(void) =0;
 
 
     /*!
@@ -643,7 +643,7 @@ class RfalRfClass {
      *
      *****************************************************************************
      */
-    virtual ReturnCode rfalAdjustRegulators(uint16_t *result);
+    virtual ReturnCode rfalAdjustRegulators(uint16_t *result) =0;
 
 
     /*!
@@ -657,7 +657,7 @@ class RfalRfClass {
      *
      *****************************************************************************
      */
-    virtual void rfalSetUpperLayerCallback(rfalUpperLayerCallback pFunc);
+    virtual void rfalSetUpperLayerCallback(rfalUpperLayerCallback pFunc) =0;
 
 
     /*!
@@ -670,7 +670,7 @@ class RfalRfClass {
      *
      *****************************************************************************
      */
-    virtual void rfalSetPreTxRxCallback(rfalPreTxRxCallback pFunc);
+    virtual void rfalSetPreTxRxCallback(rfalPreTxRxCallback pFunc) =0;
 
     /*!
      *****************************************************************************
@@ -682,7 +682,7 @@ class RfalRfClass {
      *
      *****************************************************************************
      */
-    virtual void rfalSetPostTxRxCallback(rfalPostTxRxCallback pFunc);
+    virtual void rfalSetPostTxRxCallback(rfalPostTxRxCallback pFunc) =0;
 
     /*!
      *****************************************************************************
@@ -694,7 +694,7 @@ class RfalRfClass {
      *
      *****************************************************************************
      */
-    virtual ReturnCode rfalDeinitialize(void);
+    virtual ReturnCode rfalDeinitialize(void) =0;
 
 
     /*!
@@ -722,7 +722,7 @@ class RfalRfClass {
      *
      *****************************************************************************
      */
-    virtual ReturnCode rfalSetMode(rfalMode mode, rfalBitRate txBR, rfalBitRate rxBR);
+    virtual ReturnCode rfalSetMode(rfalMode mode, rfalBitRate txBR, rfalBitRate rxBR) =0;
 
 
     /*!
@@ -736,7 +736,7 @@ class RfalRfClass {
      * \return rfalMode : The current RFAL mode
      *****************************************************************************
      */
-    virtual rfalMode rfalGetMode(void);
+    virtual rfalMode rfalGetMode(void) =0;
 
 
     /*!
@@ -764,7 +764,7 @@ class RfalRfClass {
      *
      *****************************************************************************
      */
-    virtual ReturnCode rfalSetBitRate(rfalBitRate txBR, rfalBitRate rxBR);
+    virtual ReturnCode rfalSetBitRate(rfalBitRate txBR, rfalBitRate rxBR) =0;
 
 
     /*!
@@ -786,7 +786,7 @@ class RfalRfClass {
      * \return ERR_NONE         : No error
      *****************************************************************************
      */
-    virtual ReturnCode rfalGetBitRate(rfalBitRate *txBR, rfalBitRate *rxBR);
+    virtual ReturnCode rfalGetBitRate(rfalBitRate *txBR, rfalBitRate *rxBR) =0;
 
 
     /*!
@@ -799,7 +799,7 @@ class RfalRfClass {
      *
      *****************************************************************************
      */
-    virtual void rfalSetErrorHandling(rfalEHandling eHandling);
+    virtual void rfalSetErrorHandling(rfalEHandling eHandling) =0;
 
 
     /*!
@@ -811,7 +811,7 @@ class RfalRfClass {
      * \return rfalEHandling : Current error handling mode
      *****************************************************************************
      */
-    virtual rfalEHandling rfalGetErrorHandling(void);
+    virtual rfalEHandling rfalGetErrorHandling(void) =0;
 
 
     /*!
@@ -828,7 +828,7 @@ class RfalRfClass {
      *          Please refer to the corresponding Datasheet or Application Note(s)
      *****************************************************************************
      */
-    virtual void rfalSetObsvMode(uint8_t txMode, uint8_t rxMode);
+    virtual void rfalSetObsvMode(uint8_t txMode, uint8_t rxMode) =0;
 
 
     /*!
@@ -842,7 +842,7 @@ class RfalRfClass {
      *
      *****************************************************************************
      */
-    virtual void rfalGetObsvMode(uint8_t *txMode, uint8_t *rxMode);
+    virtual void rfalGetObsvMode(uint8_t *txMode, uint8_t *rxMode) =0;
 
 
     /*!
@@ -852,7 +852,7 @@ class RfalRfClass {
      * Disables the ST25R391x observation mode
      *****************************************************************************
      */
-    virtual void rfalDisableObsvMode(void);
+    virtual void rfalDisableObsvMode(void) =0;
 
 
     /*!
@@ -871,7 +871,7 @@ class RfalRfClass {
      *
      *****************************************************************************
      */
-    virtual void rfalSetFDTPoll(uint32_t FDTPoll);
+    virtual void rfalSetFDTPoll(uint32_t FDTPoll) =0;
 
 
     /*!
@@ -889,7 +889,7 @@ class RfalRfClass {
      *
      *****************************************************************************
      */
-    virtual uint32_t rfalGetFDTPoll(void);
+    virtual uint32_t rfalGetFDTPoll(void) =0;
 
 
     /*!
@@ -906,7 +906,7 @@ class RfalRfClass {
      *
      *****************************************************************************
      */
-    virtual void rfalSetFDTListen(uint32_t FDTListen);
+    virtual void rfalSetFDTListen(uint32_t FDTListen) =0;
 
 
     /*!
@@ -922,7 +922,7 @@ class RfalRfClass {
      *
      *****************************************************************************
      */
-    virtual uint32_t rfalGetFDTListen(void);
+    virtual uint32_t rfalGetFDTListen(void) =0;
 
 
     /*!
@@ -938,7 +938,7 @@ class RfalRfClass {
      *
      *****************************************************************************
      */
-    virtual uint32_t rfalGetGT(void);
+    virtual uint32_t rfalGetGT(void) =0;
 
 
     /*!
@@ -955,7 +955,7 @@ class RfalRfClass {
      *
      *****************************************************************************
      */
-    virtual void rfalSetGT(uint32_t GT);
+    virtual void rfalSetGT(uint32_t GT) =0;
 
 
     /*!
@@ -969,7 +969,7 @@ class RfalRfClass {
      *
      *****************************************************************************
      */
-    virtual bool rfalIsGTExpired(void);
+    virtual bool rfalIsGTExpired(void) =0;
 
 
     /*!
@@ -986,7 +986,7 @@ class RfalRfClass {
      *
      *****************************************************************************
      */
-    virtual ReturnCode rfalFieldOnAndStartGT(void);
+    virtual ReturnCode rfalFieldOnAndStartGT(void) =0;
 
 
     /*!
@@ -998,7 +998,7 @@ class RfalRfClass {
      * \return ERR_NONE : Field turned Off
      *****************************************************************************
      */
-    virtual ReturnCode rfalFieldOff(void);
+    virtual ReturnCode rfalFieldOff(void) =0;
 
 
 
@@ -1027,7 +1027,7 @@ class RfalRfClass {
      * \return ERR_PARAM       : Invalid parameter or configuration
      *****************************************************************************
      */
-    virtual ReturnCode rfalStartTransceive(const rfalTransceiveContext *ctx);
+    virtual ReturnCode rfalStartTransceive(const rfalTransceiveContext *ctx) =0;
 
 
     /*!
@@ -1039,7 +1039,7 @@ class RfalRfClass {
      * \return rfalTransceiveState : the current Transceive internal State
      *****************************************************************************
      */
-    virtual rfalTransceiveState rfalGetTransceiveState(void);
+    virtual rfalTransceiveState rfalGetTransceiveState(void) =0;
 
 
     /*!
@@ -1060,7 +1060,7 @@ class RfalRfClass {
      * \return  ERR_IO           : Internal error
      *****************************************************************************
      */
-    virtual ReturnCode rfalGetTransceiveStatus(void);
+    virtual ReturnCode rfalGetTransceiveStatus(void) =0;
 
 
     /*!
@@ -1073,7 +1073,7 @@ class RfalRfClass {
      * \return false  Not in transmission state
      *****************************************************************************
      */
-    virtual bool rfalIsTransceiveInTx(void);
+    virtual bool rfalIsTransceiveInTx(void) =0;
 
 
     /*!
@@ -1086,7 +1086,7 @@ class RfalRfClass {
      * \return false  Not in reception state
      *****************************************************************************
      */
-    virtual bool rfalIsTransceiveInRx(void);
+    virtual bool rfalIsTransceiveInRx(void) =0;
 
 
     /*!
@@ -1102,7 +1102,7 @@ class RfalRfClass {
      * \return  ERR_NONE    : No error
      *****************************************************************************
      */
-    virtual ReturnCode rfalGetTransceiveRSSI(uint16_t *rssi);
+    virtual ReturnCode rfalGetTransceiveRSSI(uint16_t *rssi) =0;
 
 
     /*!
@@ -1115,7 +1115,7 @@ class RfalRfClass {
      *
      *****************************************************************************
      */
-    virtual void rfalWorker(void);
+    virtual void rfalWorker(void) =0;
 
 
     /*****************************************************************************
@@ -1148,7 +1148,7 @@ class RfalRfClass {
      *
      *****************************************************************************
      */
-    virtual ReturnCode rfalISO14443ATransceiveShortFrame(rfal14443AShortFrameCmd txCmd, uint8_t *rxBuf, uint8_t rxBufLen, uint16_t *rxRcvdLen, uint32_t fwt);
+    virtual ReturnCode rfalISO14443ATransceiveShortFrame(rfal14443AShortFrameCmd txCmd, uint8_t *rxBuf, uint8_t rxBufLen, uint16_t *rxRcvdLen, uint32_t fwt) =0;
 
 
     /*!
@@ -1171,7 +1171,7 @@ class RfalRfClass {
      * \return ERR_NONE if there is no error
      *****************************************************************************
      */
-    virtual ReturnCode rfalISO14443ATransceiveAnticollisionFrame(uint8_t *buf, uint8_t *bytesToSend, uint8_t *bitsToSend, uint16_t *rxLength, uint32_t fwt);
+    virtual ReturnCode rfalISO14443ATransceiveAnticollisionFrame(uint8_t *buf, uint8_t *bytesToSend, uint8_t *bitsToSend, uint16_t *rxLength, uint32_t fwt) =0;
 
 
     /*****************************************************************************
@@ -1198,7 +1198,7 @@ class RfalRfClass {
      * \return ERR_TIMEOUT if there is no response
      *****************************************************************************
      */
-    virtual ReturnCode rfalFeliCaPoll(rfalFeliCaPollSlots slots, uint16_t sysCode, uint8_t reqCode, rfalFeliCaPollRes *pollResList, uint8_t pollResListSize, uint8_t *devicesDetected, uint8_t *collisionsDetected);
+    virtual ReturnCode rfalFeliCaPoll(rfalFeliCaPollSlots slots, uint16_t sysCode, uint8_t reqCode, rfalFeliCaPollRes *pollResList, uint8_t pollResListSize, uint8_t *devicesDetected, uint8_t *collisionsDetected) =0;
 
 
     /*****************************************************************************
@@ -1224,7 +1224,7 @@ class RfalRfClass {
      * \return  ERR_IO          : Internal error
      *****************************************************************************
      */
-    virtual ReturnCode rfalISO15693TransceiveAnticollisionFrame(uint8_t *txBuf, uint8_t txBufLen, uint8_t *rxBuf, uint8_t rxBufLen, uint16_t *actLen);
+    virtual ReturnCode rfalISO15693TransceiveAnticollisionFrame(uint8_t *txBuf, uint8_t txBufLen, uint8_t *rxBuf, uint8_t rxBufLen, uint16_t *actLen) =0;
 
 
     /*!
@@ -1244,7 +1244,7 @@ class RfalRfClass {
      * \return  ERR_IO          : Internal error
      *****************************************************************************
      */
-    virtual ReturnCode rfalISO15693TransceiveEOFAnticollision(uint8_t *rxBuf, uint8_t rxBufLen, uint16_t *actLen);
+    virtual ReturnCode rfalISO15693TransceiveEOFAnticollision(uint8_t *rxBuf, uint8_t rxBufLen, uint16_t *actLen) =0;
 
 
     /*!
@@ -1263,7 +1263,7 @@ class RfalRfClass {
      * \return  ERR_IO          : Internal error
      *****************************************************************************
      */
-    virtual ReturnCode rfalISO15693TransceiveEOF(uint8_t *rxBuf, uint8_t rxBufLen, uint16_t *actLen);
+    virtual ReturnCode rfalISO15693TransceiveEOF(uint8_t *rxBuf, uint8_t rxBufLen, uint16_t *actLen) =0;
 
 
     /*!
@@ -1289,7 +1289,7 @@ class RfalRfClass {
      * \return  ERR_IO           : Internal error
      *****************************************************************************
      */
-    virtual ReturnCode rfalTransceiveBlockingTx(uint8_t *txBuf, uint16_t txBufLen, uint8_t *rxBuf, uint16_t rxBufLen, uint16_t *actLen, uint32_t flags, uint32_t fwt);
+    virtual ReturnCode rfalTransceiveBlockingTx(uint8_t *txBuf, uint16_t txBufLen, uint8_t *rxBuf, uint16_t rxBufLen, uint16_t *actLen, uint32_t flags, uint32_t fwt) =0;
 
     /*!
      *****************************************************************************
@@ -1310,7 +1310,7 @@ class RfalRfClass {
      * \return  ERR_IO           : Internal error
      *****************************************************************************
      */
-    virtual ReturnCode rfalTransceiveBlockingRx(void);
+    virtual ReturnCode rfalTransceiveBlockingRx(void) =0;
 
     /*!
      *****************************************************************************
@@ -1339,7 +1339,7 @@ class RfalRfClass {
      * \return  ERR_IO           : Internal error
      *****************************************************************************
      */
-    virtual ReturnCode rfalTransceiveBlockingTxRx(uint8_t *txBuf, uint16_t txBufLen, uint8_t *rxBuf, uint16_t rxBufLen, uint16_t *actLen, uint32_t flags, uint32_t fwt);
+    virtual ReturnCode rfalTransceiveBlockingTxRx(uint8_t *txBuf, uint16_t txBufLen, uint8_t *rxBuf, uint16_t rxBufLen, uint16_t *actLen, uint32_t flags, uint32_t fwt) =0;
 
 
 
@@ -1358,7 +1358,7 @@ class RfalRfClass {
      *
      *****************************************************************************
      */
-    virtual bool rfalIsExtFieldOn(void);
+    virtual bool rfalIsExtFieldOn(void) =0;
 
 
     /*!
@@ -1385,7 +1385,7 @@ class RfalRfClass {
      *
      *****************************************************************************
      */
-    virtual ReturnCode rfalListenStart(uint32_t lmMask, const rfalLmConfPA *confA, const rfalLmConfPB *confB, const rfalLmConfPF *confF, uint8_t *rxBuf, uint16_t rxBufLen, uint16_t *rxLen);
+    virtual ReturnCode rfalListenStart(uint32_t lmMask, const rfalLmConfPA *confA, const rfalLmConfPB *confB, const rfalLmConfPF *confF, uint8_t *rxBuf, uint16_t rxBufLen, uint16_t *rxLen) =0;
 
 
     /*!
@@ -1395,7 +1395,7 @@ class RfalRfClass {
      *
      *****************************************************************************
      */
-    virtual ReturnCode rfalListenSleepStart(rfalLmState sleepSt, uint8_t *rxBuf, uint16_t rxBufLen, uint16_t *rxLen);
+    virtual ReturnCode rfalListenSleepStart(rfalLmState sleepSt, uint8_t *rxBuf, uint16_t rxBufLen, uint16_t *rxLen) =0;
 
 
     /*!
@@ -1411,7 +1411,7 @@ class RfalRfClass {
      *
      *****************************************************************************
      */
-    virtual ReturnCode rfalListenStop(void);
+    virtual ReturnCode rfalListenStop(void) =0;
 
 
     /*!
@@ -1434,7 +1434,7 @@ class RfalRfClass {
      *
      *****************************************************************************
      */
-    virtual rfalLmState rfalListenGetState(bool *dataFlag, rfalBitRate *lastBR);
+    virtual rfalLmState rfalListenGetState(bool *dataFlag, rfalBitRate *lastBR) =0;
 
 
     /*!
@@ -1452,7 +1452,7 @@ class RfalRfClass {
      *
      *****************************************************************************
      */
-    virtual ReturnCode rfalListenSetState(rfalLmState newSt);
+    virtual ReturnCode rfalListenSetState(rfalLmState newSt) =0;
 
 
     /*****************************************************************************
@@ -1476,7 +1476,7 @@ class RfalRfClass {
      *
      *****************************************************************************
      */
-    virtual ReturnCode rfalWakeUpModeStart(const rfalWakeUpConfig *config);
+    virtual ReturnCode rfalWakeUpModeStart(const rfalWakeUpConfig *config) =0;
 
 
     /*!
@@ -1492,7 +1492,7 @@ class RfalRfClass {
      *
      *****************************************************************************
      */
-    virtual bool rfalWakeUpModeHasWoke(void);
+    virtual bool rfalWakeUpModeHasWoke(void) =0;
 
 
     /*!
@@ -1507,7 +1507,7 @@ class RfalRfClass {
      *
      *****************************************************************************
      */
-    virtual ReturnCode rfalWakeUpModeStop(void);
+    virtual ReturnCode rfalWakeUpModeStop(void) =0;
 
 };
 
